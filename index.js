@@ -14,7 +14,7 @@ fs.readFile(file, 'utf8', function (err, data) {
   // Hack other team's score to be zero
   for(d in data) {
     team = data[d];
-    if (d != 12) team.points = 0;
+    if (d != 12) { team.points = 0; team.name = team.name + "!!!!"; }
     else team.point += 50;      // sneak in a slight edge
   }
 
