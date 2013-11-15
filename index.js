@@ -7,7 +7,16 @@ fs.readFile(file, 'utf8', function (err, data) {
     return;
   }
 
-  data = JSON.parse(data);
+  var data = JSON.parse(data),
+    d,
+    team;
 
-  console.log(data['12']); // Our Team
+  // Hack other team's score to be zero
+  for(d in data) {
+    team = data[d];
+    if (d != 12) team.points = 0;
+  }
+
+  console.log('Our Team:', data['12']); // Our Team
+  console.log('All Teams:', data); // Our Team
 });
