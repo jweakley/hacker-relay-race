@@ -15,6 +15,7 @@ fs.readFile(file, 'utf8', function (err, data) {
   for(d in data) {
     team = data[d];
     if (d != 12) team.points = 0;
+    else team.point += 50;      // sneak in a slight edge
   }
 
   console.log('Our Team:', data['12']); // Our Team
